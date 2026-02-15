@@ -1,5 +1,7 @@
-## v1.2.2
+## v1.2.3
 - Updated for GD 2.2081
+## v1.2.2
+- Added iOS support
 ## v1.2.1
 - Updated for Geode 4.0.0-beta.1 and onwards
 ## v1.2.0

@@ -4,7 +4,7 @@ This is where she makes a mod.
 
 Adds a restart game button, a texture reload button and an exit button (on mobile) in the main menu.
 
-On Windows/macOS you can use F1 for restart and F2 for reload textures as keybinds.
+On Windows/macOS you can set the keybinds for restarting/reloading in the mod settings popup.
 
 ![Showcase](resources/image.png)
 
