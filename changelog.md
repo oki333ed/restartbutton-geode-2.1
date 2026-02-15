@@ -1,3 +1,5 @@
+## v1.2.2
+- Updated for GD 2.2081
 ## v1.2.1
 - Updated for Geode 4.0.0-beta.1 and onwards
 ## v1.2.0

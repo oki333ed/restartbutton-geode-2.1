@@ -1,6 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
-#include <Geode/modify/CCKeyboardDispatcher.hpp>
+#include <Geode/utils/Keyboard.hpp>
 using namespace geode::prelude;
 
 bool isReload = false;
@@ -14,7 +14,7 @@ void restart() {
 		"Cancel", "Yes",
 		[](auto, bool btn2) {
 			if (btn2) {
-				game::restart();
+				game::restart(true);
 			}
 		}
 	)->setID("restart-popup");
@@ -125,27 +125,19 @@ class $modify(AltMenuLayer, MenuLayer) {
 	}
 };
 
-
-class $modify(CCKeyboardDispatcher) {
-	bool dispatchKeyboardMSG(cocos2d::enumKeyCodes key, bool down, bool repeat) {
-		auto scene = CCDirector::get()->getRunningScene();
-
-		if (Mod::get()->getSettingValue<bool>("keybind_anywhere")) {
-			if (!LevelEditorLayer::get()) {
-				if (key == enumKeyCodes::KEY_F1 && down)
-					restart();
-				else if (key == enumKeyCodes::KEY_F2 && down)
-					reload();
-			}
-		} else {
-			if (scene->getChildByID("MenuLayer")) {
-				if (key == enumKeyCodes::KEY_F1 && down)
-					restart();
-				else if (key == enumKeyCodes::KEY_F2 && down)
-					reload();
+$execute {
+	listenForKeybindSettingPresses("restart-keybind", [](Keybind const& keybind, bool down, bool repeat) {
+		if (Mod::get()->getSettingValue<bool>("keybind_anywhere") ? LevelEditorLayer::get() == nullptr : CCDirector::get()->getRunningScene()->getChildByID("MenuLayer") != nullptr) {
+			if (down && !repeat) {
+				restart();
 			}
 		}
-
-		return CCKeyboardDispatcher::dispatchKeyboardMSG(key, down, repeat);
-	}
-};
+	});
+	listenForKeybindSettingPresses("reload-keybind", [](Keybind const& keybind, bool down, bool repeat) {
+		if (Mod::get()->getSettingValue<bool>("keybind_anywhere") ? LevelEditorLayer::get() == nullptr : CCDirector::get()->getRunningScene()->getChildByID("MenuLayer") != nullptr) {
+			if (down && !repeat) {
+				reload();
+			}
+		}
+	});
+}
