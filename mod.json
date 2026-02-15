@@ -49,7 +49,8 @@
 			"name": "Keybind works anywhere",
 			"description": "...except the editor",
 			"type": "bool",
-			"default": false
+			"default": false,
+			"platforms": ["win", "android", "mac"]
 		},
 		"exit": {
 			"name": "Show Exit button",
