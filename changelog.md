@@ -1,5 +1,8 @@
+## v1.2.4
+- Fixed keybinds not working after Geode 5.0.0-beta.2
 ## v1.2.3
 - Updated for GD 2.2081
+- The keybinds for restarting/reloading textures are now able to be changed in the mod settings popup
 ## v1.2.2
 - Added iOS support
 ## v1.2.1

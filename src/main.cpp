@@ -126,14 +126,14 @@ class $modify(AltMenuLayer, MenuLayer) {
 };
 
 $execute {
-	listenForKeybindSettingPresses("restart-keybind", [](Keybind const& keybind, bool down, bool repeat) {
+	listenForKeybindSettingPresses("restart-keybind", [](Keybind const& keybind, bool down, bool repeat, double dt) {
 		if (Mod::get()->getSettingValue<bool>("keybind_anywhere") ? LevelEditorLayer::get() == nullptr : CCDirector::get()->getRunningScene()->getChildByID("MenuLayer") != nullptr) {
 			if (down && !repeat) {
 				restart();
 			}
 		}
 	});
-	listenForKeybindSettingPresses("reload-keybind", [](Keybind const& keybind, bool down, bool repeat) {
+	listenForKeybindSettingPresses("reload-keybind", [](Keybind const& keybind, bool down, bool repeat, double dt) {
 		if (Mod::get()->getSettingValue<bool>("keybind_anywhere") ? LevelEditorLayer::get() == nullptr : CCDirector::get()->getRunningScene()->getChildByID("MenuLayer") != nullptr) {
 			if (down && !repeat) {
 				reload();
