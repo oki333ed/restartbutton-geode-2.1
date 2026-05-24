@@ -1,11 +1,5 @@
 {
-	"geode": "5.0.0-beta.3",
-	"gd": {
-		"win": "2.2081",
-		"android": "2.2081",
-		"mac": "2.2081",
-		"ios": "2.2081"
-	},
+	"geode": "1.3.10",
 	"version": "v1.2.4",
 	"id": "weebify.restartbtn",
 	"name": "Restart Buttons",
@@ -36,13 +30,13 @@
 		"restart-keybind": {
 			"name": "Restart Keybind",
 			"description": "The keybind to restart the game.",
-			"type": "keybind",
+			"type": "string",
 			"default": "F1"
 		},
 		"reload-keybind": {
 			"name": "Reload Textures Keybind",
 			"description": "The keybind to reload the game textures.",
-			"type": "keybind",
+			"type": "string",
 			"default": "F2"
 		},
 		"keybind_anywhere": {

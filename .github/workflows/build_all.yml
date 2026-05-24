@@ -15,21 +15,6 @@ jobs:
         - name: Windows
           os: windows-latest
 
-        - name: macOS
-          os: macos-latest
-
-        - name: iOS
-          os: macos-latest
-          target: iOS
-          
-        - name: Android32
-          os: ubuntu-latest
-          target: Android32
-
-        - name: Android64
-          os: ubuntu-latest
-          target: Android64
-
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
 
@@ -37,14 +22,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build the mod
-        uses: geode-sdk/build-geode-mod@main
+        uses: Modding-Restoration/build-geode-mod-2.1-original@main
         with:
-          bindings: geode-sdk/bindings
           build-config: RelWithDebInfo
           export-pdb: true
           combine: true
-          sdk: 'nightly'
-          cli: 'nightly'
+          sdk: 'v1.3.10'
+          cli: 'v2.5.0'
           target: ${{ matrix.config.target }}
 
   package:
@@ -53,7 +37,7 @@ jobs:
     needs: ['build']
 
     steps:
-      - uses: geode-sdk/build-geode-mod/combine@main
+      - uses: Modding-Restoration/build-geode-mod-2.1-original/combine@main
         id: build
 
       - uses: actions/upload-artifact@v4
