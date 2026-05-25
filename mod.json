@@ -1,6 +1,6 @@
 {
 	"geode": "1.3.10",
-	"version": "v1.2.4",
+	"version": "v1.2.2",
 	"id": "weebify.restartbtn",
 	"name": "Restart Buttons",
 	"developer": "Weebify",
@@ -27,24 +27,11 @@
 				"slider-step": 0.01
 			}
 		},
-		"restart-keybind": {
-			"name": "Restart Keybind",
-			"description": "The keybind to restart the game.",
-			"type": "string",
-			"default": "F1"
-		},
-		"reload-keybind": {
-			"name": "Reload Textures Keybind",
-			"description": "The keybind to reload the game textures.",
-			"type": "string",
-			"default": "F2"
-		},
 		"keybind_anywhere": {
 			"name": "Keybind works anywhere",
 			"description": "...except the editor",
 			"type": "bool",
-			"default": false,
-			"platforms": ["win", "android", "mac"]
+			"default": false
 		},
 		"exit": {
 			"name": "Show Exit button",
